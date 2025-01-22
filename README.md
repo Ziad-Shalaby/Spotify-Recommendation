@@ -2,21 +2,38 @@
 
 ## Project Overview
 
-This project implements a recommendation system for Spotify, utilizing similarity analysis to suggest songs based on user preferences. It includes a preprocessed similarity file that is essential for running the project and deploying the system.
+This project implements a recommendation system for Spotify, utilizing similarity analysis to suggest songs based on user preferences. The system includes a web scraping component to gather data, a preprocessing step to generate the similarity file, and a deployment script to make the recommendations accessible through a user-friendly interface.
 
 ## Table of Contents
 
 1. [Features](#features)
-2. [Prerequisites](#prerequisites)
-3. [Installation](#installation)
-4. [Usage](#usage)
-5. [Contributing](#contributing)
+2. [Data Collection](#data-collection)
+3. [Prerequisites](#prerequisites)
+4. [Installation](#installation)
+5. [Usage](#usage)
+6. [Contributing](#contributing)
 
 ## Features
 
 - **Song Recommendation:** Suggests songs based on user inputs and preferences.
 - **Similarity Analysis:** Uses a precomputed similarity file for efficient recommendations.
+- **Web Scraping:** Collects song data, including metadata and audio features, from Spotify or similar platforms.
 - **Deployment Ready:** Includes deployment scripts for running the project in a local or online environment.
+
+## Data Collection
+
+The data used for this project is collected through a web scraping script:
+
+1. **Web Scraping:**
+   - A Python script (`scraper.py`) is used to scrape song data from online sources.
+   - The script gathers song titles, artist names, genres, and audio features (e.g., tempo, energy, danceability).
+
+2. **Data Storage:**
+   - The scraped data is stored in a structured CSV file (`songs_data.csv`) for further processing.
+
+3. **Preprocessing:**
+   - The data is cleaned and processed to ensure consistency.
+   - A similarity matrix is computed based on audio features, and the result is saved as `similarity.pkl` for use in the recommendation system.
 
 ## Prerequisites
 
@@ -68,7 +85,25 @@ To set up this project locally, follow these steps:
 
 ## Usage
 
-1. **Run the project:**
+1. **Run the web scraping script (optional):**
+
+   If you need to scrape new data:
+
+   ```bash
+   python scraper.py
+   ```
+
+   Ensure the output CSV file is saved in the project directory.
+
+2. **Generate the similarity file (if needed):**
+
+   If the similarity file is not present or needs to be updated:
+
+   ```bash
+   python generate_similarity.py
+   ```
+
+3. **Run the project:**
 
    Make sure the similarity file (`similarity.pkl`) is present in the project directory. Then, execute the deployment script:
 
@@ -76,7 +111,7 @@ To set up this project locally, follow these steps:
    python app.py
    ```
 
-2. **Access the application:**
+4. **Access the application:**
 
    Open your web browser and navigate to `http://localhost:5000` to interact with the recommendation system.
 
