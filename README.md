@@ -2,7 +2,7 @@
 
 ## Project Overview
 
-This project implements a recommendation system for Spotify, utilizing similarity analysis to suggest songs based on user preferences. The system includes a web scraping component to gather data, a preprocessing step to generate the similarity file, and a deployment script to make the recommendations accessible through a user-friendly interface.
+This project implements a recommendation system for Spotify, utilizing similarity analysis to suggest songs based on user preferences. The system relies on a combination of scraped data and a pre-prepared dataset to build an efficient and scalable recommendation engine. It includes a web scraping component to gather additional data, preprocessing steps to generate the similarity file, and a deployment script to make the recommendations accessible through a user-friendly interface.
 
 ## Table of Contents
 
@@ -18,21 +18,26 @@ This project implements a recommendation system for Spotify, utilizing similarit
 - **Song Recommendation:** Suggests songs based on user inputs and preferences.
 - **Similarity Analysis:** Uses a precomputed similarity file for efficient recommendations.
 - **Web Scraping:** Collects song data, including metadata and audio features, from Spotify or similar platforms.
+- **Dataset Integration:** Incorporates a pre-prepared dataset to complement the scraped data.
 - **Deployment Ready:** Includes deployment scripts for running the project in a local or online environment.
 
 ## Data Collection
 
-The data used for this project is collected through a web scraping script:
+The data used for this project comes from two main sources:
 
 1. **Web Scraping:**
    - A Python script (`scraper.py`) is used to scrape song data from online sources.
    - The script gathers song titles, artist names, genres, and audio features (e.g., tempo, energy, danceability).
 
-2. **Data Storage:**
-   - The scraped data is stored in a structured CSV file (`songs_data.csv`) for further processing.
+2. **Prepared Dataset:**
+   - In addition to scraped data, a pre-prepared dataset is used to ensure the recommendation system has comprehensive and high-quality data.
+   - This dataset provides a rich set of audio features and metadata that are preprocessed and ready for use.
 
-3. **Preprocessing:**
-   - The data is cleaned and processed to ensure consistency.
+3. **Data Storage:**
+   - Both the scraped data and the prepared dataset are combined and stored in a structured CSV file (`songs_data.csv`) for further processing.
+
+4. **Preprocessing:**
+   - The combined data is cleaned and processed to ensure consistency.
    - A similarity matrix is computed based on audio features, and the result is saved as `similarity.pkl` for use in the recommendation system.
 
 ## Prerequisites
